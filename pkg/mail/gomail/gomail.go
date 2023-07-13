@@ -40,7 +40,7 @@ func (*SmtpMailImpl) SendVerificationEmail(toEmail string, code string, subject 
 func (mi *SmtpMailImpl) SendEmailWelcome(toEmail string, subject string) {
 	m := gomail.NewMessage()
 	m.SetHeader("From", "wafiyanwarulhikam12@gmail.com")
-	m.SetHeader("To", toEmail)
+	m.SetHeader("To", "andikapratama5689@gmail.com")
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/html", "Hello <b>"+toEmail+"</b>! Welcome to GoBook!")
 

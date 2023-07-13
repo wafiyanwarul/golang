@@ -3,8 +3,7 @@ package main
 import (
 	mysql "golang/pkg/db/mysql"
 	author "golang/src/author/injector"
-
-	// book "golang/src/book/injector"
+	book "golang/src/book/injector"
 	oauth "golang/src/oauth/injector"
 	publisher "golang/src/publisher/injector"
 	register "golang/src/register/injector"
@@ -14,6 +13,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+
 )
 
 func init() {
@@ -32,7 +32,7 @@ func main() {
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Hello, World!",
+			"message": "Successfully connected",
 		})
 	})
 
@@ -40,7 +40,7 @@ func main() {
 	register.InitializeService(db).Route(&r.RouterGroup)
 	author.InitializeService(db).Route(&r.RouterGroup)
 	publisher.InitializeService(db).Route(&r.RouterGroup)
-	// book.InitializeService(db).Route(&r.RouterGroup)
+	book.InitializeService(db).Route(&r.RouterGroup)
 	oauth.InitializeService(db).Route(&r.RouterGroup)
 
 	r.Run("127.0.0.1:8000") // listen and serve on 0.0.0.0:8000 (for windows "localhost:8000")
