@@ -5,8 +5,14 @@ go 1.20
 require github.com/joho/godotenv v1.5.1
 
 require (
+	github.com/creasty/defaults v1.5.1 // indirect
+	github.com/gorilla/schema v1.2.0 // indirect
+)
+
+require (
 	github.com/bytedance/sonic v1.9.2 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
+	github.com/cloudinary/cloudinary-go/v2 v2.3.0
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.9.1 // indirect
@@ -17,6 +23,7 @@ require (
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.0.0 // indirect
 	github.com/google/subcommands v1.0.1 // indirect
+	github.com/google/uuid v1.3.0 // indirect
 	github.com/google/wire v0.5.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect

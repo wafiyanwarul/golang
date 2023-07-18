@@ -23,13 +23,13 @@ func (*SmtpMailImpl) SendVerificationEmail(toEmail string, code string, subject 
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/html", "Hello <b>"+toEmail+"</b>! Welcome to Gobook! Your verification code is <b>"+code+"</b>")
 
-	port, portERR := strconv.Atoi(os.Getenv("SMTP_PORT"))
+	port, portERR := strconv.Atoi(os.Getenv("587"))
 
 	if portERR != nil {
 		panic(portERR)
 	}
 
-	d := gomail.NewDialer(os.Getenv("SMTP_HOST"), port, os.Getenv("SMTP_USERNAME"), os.Getenv("SMTP_PASSWORD"))
+	d := gomail.NewDialer(os.Getenv("sandbox.smtp.mailtrap.io"), port, os.Getenv("437d496df96a98"), os.Getenv("3868d30d21a8a4"))
 
 	// Send the email to Bob, Cora and Dan.
 	if err := d.DialAndSend(m); err != nil {
@@ -44,13 +44,13 @@ func (mi *SmtpMailImpl) SendEmailWelcome(toEmail string, subject string) {
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/html", "Hello <b>"+toEmail+"</b>! Welcome to GoBook!")
 
-	port, portERR := strconv.Atoi(os.Getenv("SMTP_PORT"))
+	port, portERR := strconv.Atoi(os.Getenv("587"))
 
 	if portERR != nil {
 		panic(portERR)
 	}
 
-	d := gomail.NewDialer(os.Getenv("SMTP_HOST"), port, "400aa71a30e23c", os.Getenv("SMTP_PASSWORD"))
+	d := gomail.NewDialer(os.Getenv("sandbox.smtp.mailtrap.io"), port, "437d496df96a98", os.Getenv("3868d30d21a8a4"))
 
 	// Send the email to Bob, Cora and Dan.
 	if err := d.DialAndSend(m); err != nil {

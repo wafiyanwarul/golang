@@ -7,13 +7,13 @@ import (
 	oauth "golang/src/oauth/injector"
 	publisher "golang/src/publisher/injector"
 	register "golang/src/register/injector"
+	rental "golang/src/rental/injector"
 	user "golang/src/user/injector"
 	"os"
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-
 )
 
 func init() {
@@ -42,6 +42,7 @@ func main() {
 	publisher.InitializeService(db).Route(&r.RouterGroup)
 	book.InitializeService(db).Route(&r.RouterGroup)
 	oauth.InitializeService(db).Route(&r.RouterGroup)
+	rental.InitializeService(db).Route(&r.RouterGroup)
 
 	r.Run("127.0.0.1:8000") // listen and serve on 0.0.0.0:8000 (for windows "localhost:8000")
 }
